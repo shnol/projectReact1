@@ -1,0 +1,11 @@
+.body {
+  grid-area: b;
+  background-color: chocolate;
+}
+.body img {
+  width: 700px;
+}
+
+.header {
+  padding: 10px;
+}

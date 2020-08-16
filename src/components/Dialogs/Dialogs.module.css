@@ -1,0 +1,13 @@
+
+.body {
+  display: grid;
+  grid-template-columns: 2fr 9fr;
+}
+
+.dialogs {
+
+}
+
+.item {
+  color: greenyellow;
+}
