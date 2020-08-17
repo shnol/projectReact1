@@ -15,12 +15,12 @@ const App = (props) => {
         <div className="App">
             <Header/>
             <div className="body">
-                <Route path="/dialogs" render={() => <Dialogs postsdata={props.state.dialogPage.postsdata}
-                                                              usersname={props.state.dialogPage.usersname}/>}/>
+                <Route path="/dialogs" render={() => <Dialogs
+                    dialogPage={props.state.dialogPage}
+                    dispatch={props.dispatch}/>}/>
                 <Route path="/profile" render={() => <Profile
                     profilePage={props.state.profilePage}
-                    dispatch={props.dispatch}
-                    />}/>
+                    dispatch={props.dispatch}/>}/>
                 <Route path="/news" render={() => <News/>}/>
                 <Route path="/music" render={() => <Music/>}/>
                 <Route path="/settings" render={() => <Settings/>}/>

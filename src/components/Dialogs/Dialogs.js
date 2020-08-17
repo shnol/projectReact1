@@ -1,6 +1,7 @@
 import React, {createRef} from 'react';
 import cls from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
+import {addMessageAC, updateMessageTextAC} from "../../redux/dialogsReducer";
 
 const User = (props) => {
     return (
@@ -17,11 +18,16 @@ const Post = (props) => {
 }
 
 const dialogs = (props) => {
-
-    let userslist = props.usersname.map(user => <User id={user.id} name={user.name}/>)
-    let postslist = props.postsdata.map(post => <Post id={post.id} post={post.text}/>)
-    const addPost = createRef()
-    const addPosts = () =>  {alert(addPost.current.value)}
+    debugger
+    let userslist = props.dialogPage.usersName.map(user => <User id={user.id} name={user.name}/>)
+    let postslist = props.dialogPage.messageData.map(post => <Post id={post.id} post={post.text}/>)
+    let addMessage = () => {
+        props.dispatch(addMessageAC())
+    }
+    let onMessChng = (e) => {
+        let text = e.target.value
+        props.dispatch(updateMessageTextAC(text))
+    }
 
     return (
         <div className={cls.body}>
@@ -30,8 +36,11 @@ const dialogs = (props) => {
             </div>
             <div className={cls.messages}>
                 {postslist}
-                <textarea ref={addPost}></textarea>
-                <button onClick={addPosts}>Add post</button>
+                <textarea
+                    value={props.dialogPage.textMessage}
+                    onChange={onMessChng}
+                    placeholder={'here message'}></textarea>
+                <button onClick={addMessage}>Add post</button>
             </div>
         </div>
     );
