@@ -1,7 +1,6 @@
-import React, {createRef} from 'react';
+import React from 'react';
 import cls from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
-import {addMessageAC, updateMessageTextAC} from "../../redux/dialogsReducer";
 
 const User = (props) => {
     return (
@@ -17,16 +16,15 @@ const Post = (props) => {
     )
 }
 
-const dialogs = (props) => {
-    debugger
+const Dialogs = (props) => {
     let userslist = props.dialogPage.usersName.map(user => <User id={user.id} name={user.name}/>)
     let postslist = props.dialogPage.messageData.map(post => <Post id={post.id} post={post.text}/>)
     let addMessage = () => {
-        props.dispatch(addMessageAC())
+        props.addMessage()
     }
     let onMessChng = (e) => {
         let text = e.target.value
-        props.dispatch(updateMessageTextAC(text))
+        props.onMessChng(text)
     }
 
     return (
@@ -46,5 +44,5 @@ const dialogs = (props) => {
     );
 }
 
-export default dialogs;
+export default Dialogs;
 

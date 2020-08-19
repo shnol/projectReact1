@@ -1,7 +1,7 @@
 import React from 'react';
 import cls from './MyPosts.module.css';
 import Post from "./post/Post";
-import {addPostAC, updatePostTextAC} from "../../../redux/profileReducer";
+
 
 const MyPosts = (props) => {
     let postslist = props.profilePage.posts.map(post => <Post
@@ -9,12 +9,12 @@ const MyPosts = (props) => {
         like={post.like}
         id={post.id}/>)
     let newPostEl = React.createRef()
-    let addpost = () => {
-        props.dispatch(addPostAC())
+    let onAddpost = () => {
+        props.addpost()
     }
     let onPostChng = () => {
         let text = newPostEl.current.value
-        props.dispatch(updatePostTextAC(text))
+        props.onPostChng(text)
     }
 
     return (
@@ -27,7 +27,7 @@ const MyPosts = (props) => {
                     ref={newPostEl}
                     value={props.profilePage.textAreaOnProfile}
                     onChange={onPostChng}/>
-                <button onClick={addpost}>Add post</button>
+                <button onClick={onAddpost}>Add post</button>
                 {postslist}
             </div>
         </div>
