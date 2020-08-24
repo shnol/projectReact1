@@ -16,13 +16,17 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case upt:
-            state.textAreaOnProfile = action.newText
-            return state
+            return {
+                ...state,
+                textAreaOnProfile: action.newText
+            }
         case ap:
             let newPost = state.textAreaOnProfile
-            state.posts.push({id: 3, text: newPost, like: 14})
-            state.textAreaOnProfile = ""
-            return state
+            return {
+                ...state,
+                posts: [ ...state.posts, {id: 3, text: newPost, like: 14}],
+                textAreaOnProfile: ""
+            }
         default:
             return state
     }
