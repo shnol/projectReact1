@@ -1,17 +1,20 @@
 const fllw = "FOLLOW"
 const unfllw = "UNFOLLOW"
 const setUsers = "SET-USERS"
+const setCurrentPage = "SET-CURRENT-PAGE"
+const setTotalUsersCount = "SET-TOTAL-USERS-COUNT"
 
 export const followAC = (userId) => ({type: fllw, userId})
 export const unfollowAC = (userId) => ({type: unfllw, userId})
 export const setUsersAC = (users) => ({type: setUsers, users})
+export const setCurrentPageAC = (currentPage) => ({type: setCurrentPage, currentPage})
+export const setTotalUsersCountAC = (totalUsersCount) => ({type: setTotalUsersCount, totalUsersCount})
 
 let initialState = {
-    users: [
-        // {id: 1, followed: true, name: 'H1 i111 www123', status: "BOSS", location: {city: "KRD", country: "russia"}},
-        // {id: 2, followed: false, name: 'H2', status: "BOSS", location: {city: "qwe", country: "fdgfg"}},
-        // {id: 3, followed: true, name: 'H3', status: "BOSS", location: {city: "asd", country: "zxc"}}
-    ]
+    users: [],
+    pageSize: 10,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -37,7 +40,13 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
         case setUsers: {
-            return { ...state, users: [ ...state.users, ...action.users]}
+            return { ...state, users: action.users}
+        }
+        case setCurrentPage: {
+            return { ...state, currentPage: action.currentPage}
+        }
+        case setTotalUsersCount: {
+            return { ...state, totalUsersCount: action.totalUsersCount}
         }
         default:
             return state

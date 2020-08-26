@@ -5,6 +5,7 @@ import Post from "./post/Post";
 
 const MyPosts = (props) => {
     let postslist = props.profilePage.posts.map(post => <Post
+        key={post.id}
         message={post.text}
         like={post.like}
         id={post.id}/>)

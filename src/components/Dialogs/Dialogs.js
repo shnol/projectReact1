@@ -17,8 +17,8 @@ const Post = (props) => {
 }
 
 const Dialogs = (props) => {
-    let userslist = props.dialogPage.usersName.map(user => <User id={user.id} name={user.name}/>)
-    let postslist = props.dialogPage.messageData.map(post => <Post id={post.id} post={post.text}/>)
+    let userslist = props.dialogPage.usersName.map(user => <User key={user.id} id={user.id} name={user.name}/>)
+    let postslist = props.dialogPage.messageData.map(post => <Post key={post.id} id={post.id} post={post.text}/>)
     let addMessage = () => {
         props.addMessage()
     }
