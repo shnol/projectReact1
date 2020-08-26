@@ -1,6 +1,6 @@
 const fllw = "FOLLOW"
 const unfllw = "UNFOLLOW"
-const setUsers = "UNFOLLOW"
+const setUsers = "SET-USERS"
 
 export const followAC = (userId) => ({type: fllw, userId})
 export const unfollowAC = (userId) => ({type: unfllw, userId})
@@ -8,9 +8,9 @@ export const setUsersAC = (users) => ({type: setUsers, users})
 
 let initialState = {
     users: [
-        {id: 1, followed: true, name: 'H1 i111 www123', status: "BOSS", location: {city: "KRD", country: "russia"}},
-        {id: 2, followed: false, name: 'H2', status: "BOSS", location: {city: "qwe", country: "fdgfg"}},
-        {id: 3, followed: true, name: 'H3', status: "BOSS", location: {city: "asd", country: "zxc"}}
+        // {id: 1, followed: true, name: 'H1 i111 www123', status: "BOSS", location: {city: "KRD", country: "russia"}},
+        // {id: 2, followed: false, name: 'H2', status: "BOSS", location: {city: "qwe", country: "fdgfg"}},
+        // {id: 3, followed: true, name: 'H3', status: "BOSS", location: {city: "asd", country: "zxc"}}
     ]
 }
 
