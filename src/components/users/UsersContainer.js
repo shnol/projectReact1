@@ -10,7 +10,7 @@ import {
 } from "../../redux/usersReducer";
 import * as axios from "axios";
 import Users from "./Users";
-import loader from "../../assets/128x128.gif"
+import loader from "../../assets/1128x128.gif"
 
 class UsersAPIContainer extends React.Component {
     componentDidMount() {

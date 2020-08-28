@@ -5,14 +5,14 @@ import MyPostsContainer from "./myPosts/MyPostsContainer";
 
 
 
-const profile = (props) => {
+let Profile = (props) => {
   return (
       <div className={cls.body}>
-          <Profileinfo />
+          <Profileinfo profile={props.profile}/>
           <MyPostsContainer/>
       </div>
   );
 }
 
-export default profile;
+export default Profile;
 

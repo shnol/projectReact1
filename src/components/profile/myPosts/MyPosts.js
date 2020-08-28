@@ -27,7 +27,8 @@ const MyPosts = (props) => {
                 <textarea
                     ref={newPostEl}
                     value={props.profilePage.textAreaOnProfile}
-                    onChange={onPostChng}/>
+                    onChange={onPostChng}
+                />
                 <button onClick={onAddpost}>Add post</button>
                 {postslist}
             </div>

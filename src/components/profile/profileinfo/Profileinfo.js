@@ -1,13 +1,20 @@
 import React from 'react';
 import cls from './Profileinfo.module.css';
+import Preloader from "../../common/preloader";
 
 
-const profileinfo = () => {
+const profileinfo = (props) => {
+
+    if(!props.profile) {
+        return <Preloader/>
+    }
+
   return (
       <div className={cls.body}>
-          <img src="https://codeseller.ru/wp-content/uploads/2019/11/srt-translate-list.jpg" alt="список" />
+          <img src={props.profile.photos.large} />
           <div className={cls.bodyinfo}>
-              ava+description
+              {props.profile.aboutMe}
+              <div>{props.profile.fullName}</div>
           </div>
       </div>
   );
