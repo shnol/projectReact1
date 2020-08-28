@@ -34,10 +34,10 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 
 .App {
-  margin: 0 auto;
+  margin: auto;
   display: grid;
   grid-template-areas:
-  "h h"
+  "h s"
   "b n"
   "f f";
   grid-template-rows: 60px 1fr 60px;
@@ -46,6 +46,6 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 .body {
   grid-area: b;
-  background-color: chocolate;
+  background-color: #d2691e;
   padding: 10px;
 }
