@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button'
 
 const HeaderMain = (props) => {
-    debugger
   return (
       <header className={cls.header}>
           <div>
